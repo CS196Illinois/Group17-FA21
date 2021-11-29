@@ -1,0 +1,23 @@
+{% extends "base.html" %} {% block title %}Changed{% endblock %}
+
+{% block content %}
+<div>
+    <h1>
+        <table>
+            <tr>
+                <th>Songs</th>
+                <th>    
+                    <form action="/recomendations" method="post">
+                        <button>Make Playlist</button>
+                    </form>
+                </th>
+            </tr>
+        {% for songs in songList %}
+                <tr>
+                    <td>{{songs}}</td>
+                </tr>
+            {% endfor %}
+        </table>
+    </h1>
+</div>
+{% endblock %}
