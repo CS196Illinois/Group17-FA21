@@ -1,0 +1,13 @@
+.container {
+    margin-top: 20%;
+    font-family: Arial;
+    text-align: center;
+}
+
+h1 {
+    text-align: center;
+}
+
+button {
+    position: relative;
+}
