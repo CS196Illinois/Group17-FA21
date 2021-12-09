@@ -14,9 +14,9 @@ from sklearn.decomposition import PCA
 
 # Using a kaggle dataset which categorizes the spotify data into data by year and data by genres as well
 
-dataset = pd.read_csv('/Users/kennykim/Desktop/GitHub/Spotify Kaggle Data/data.csv')
-dataset_year = pd.read_csv('/Users/kennykim/Desktop/Github/Spotify Kaggle Data/data_by_year.csv')
-dataset_genres = pd.read_csv('/Users/kennykim/Desktop/GitHub/Spotify Kaggle Data/data_by_genres.csv')
+dataset = pd.read_csv('/Users/kennykim/Desktop/GitHub/Group17-FA21/Project/data.csv')
+dataset_year = pd.read_csv('/Users/kennykim/Desktop/Github/Group17-FA21/Project/data_by_year.csv')
+dataset_genres = pd.read_csv('/Users/kennykim/Desktop/GitHub/Group17-FA21/Project/data_by_genres.csv')
 #   provides the info of each datset : dataset.info(), dataset_year.info(), dataset_genres.info()
 
 x = dataset.select_dtypes(include='number')
@@ -54,11 +54,28 @@ def cluster_indices(cluster_number, labels):
 
 def song_data(song, dataset):
     try:
-        data = dataset[(dataset['name'] == song['name']) & dataset['id'] == song['id']]
-        return data.select_dtypes(include='number')
+        data = dataset[(dataset['name'] == song['name']) & (dataset['year'] == song['year'])].iloc[0]
+        return data
     except IndexError:
         data = spotify.find_song(song['name'], song['id'])
-        return data.select_dtypes(include='number')
+        return data
+
+columns = ['valence', 'year', 'acousticness', 'danceability', 'duration_ms', 'energy', 'explicit',
+ 'instrumentalness', 'key', 'liveness', 'loudness', 'mode', 'popularity', 'speechiness', 'tempo']
+
+def similar_vector(song, dataset):
+    data_song = song_data(song, dataset)
+    if data_song is None:
+        print('Not available in the current Spotify dataset')
+    cos_vector = data_song[columns].values
+    matrix = np.array(cos_vector)
+    return np.mean(matrix, axis=0)
+
+
+    
+        
+        
+    
     
 
 
