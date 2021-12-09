@@ -6,3 +6,6 @@ https://deepai.org/machine-learning-glossary-and-terms/sigmoid-function#:~:text=
 
 "For the neural net tweaking, altering hidden layer numbers"
 https://stats.stackexchange.com/questions/181/how-to-choose-the-number-of-hidden-layers-and-nodes-in-a-feedforward-neural-netw#:~:text=There%20is%20currently%20no%20theoretical%20%20reason%20to,neural%20%20network%20architectures%20with%20various%20hidden%20layers.
+
+"This Link is the second ML Approach I did, but not at all what I wanted. It was more a proof of concept for the dataset, and to show others what the goal would look like if the neural nets failed entirely to work. I did however get a result, so it wasn't needed. I kept it for comparison"
+https://thecleverprogrammer.com/2021/03/03/spotify-recommendation-system-with-machine-learning/
